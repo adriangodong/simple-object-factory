@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace SimpleObjectFactory
 {
@@ -10,7 +11,7 @@ namespace SimpleObjectFactory
 
         public void RegisterType<TService, TImplementation>() where TImplementation : TService
         {
-            if (!typeof(TService).IsAssignableFrom(typeof(TImplementation)))
+            if (!typeof(TService).GetTypeInfo().IsAssignableFrom(typeof(TImplementation).GetTypeInfo()))
             {
                 throw new ArgumentException($"{typeof(TService).Name} is not assignable from {typeof(TImplementation).Name}");
             }

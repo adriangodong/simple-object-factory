@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace SimpleObjectFactory
 {
     internal class SingletonObjectCreator<T> : IObjectCreator
@@ -11,7 +13,7 @@ namespace SimpleObjectFactory
 
             var implementationType = typeof(T);
 
-            foreach (var constructor in implementationType.GetConstructors())
+            foreach (var constructor in implementationType.GetTypeInfo().DeclaredConstructors)
             {
                 if (constructor.IsPublic)
                 {
