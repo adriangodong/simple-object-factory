@@ -1,8 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Title>Simple Object Factory</Title>
+    <Description>Simple Object Factory supports Dependency Injection pattern in .NET. SOF simplifies creation of types with chained dependencies. SOF is reflection-based constructor-injection library.</Description>
+    <Authors>adrian</Authors>
     <TargetFramework>netstandard1.2</TargetFramework>
+    <AssemblyName>SimpleObjectFactory</AssemblyName>
+    <PackageId>SimpleObjectFactory</PackageId>
+    <PackageTags>dependency;injection;simple;factory</PackageTags>
+    <IncludeSymbols>True</IncludeSymbols>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>2.0.0</Version>
+    <PackageProjectUrl>https://github.com/adriangodong/simple-object-factory</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/adriangodong/simple-object-factory/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
 </Project>
