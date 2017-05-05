@@ -1,5 +1,4 @@
 .vs/
-SimpleObjectFactory/bin
-SimpleObjectFactory/obj
-SimpleObjectFactory.Test/bin
-SimpleObjectFactory.Test/obj
+bin/
+obj/
+packages/
