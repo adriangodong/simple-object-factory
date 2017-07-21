@@ -1,0 +1,20 @@
+version: '{build}'
+image: Visual Studio 2017
+configuration: Release
+before_build:
+- cmd: dotnet restore
+build:
+  project: SimpleObjectFactory.sln
+  verbosity: minimal
+test_script:
+- cmd: >-
+    dotnet test SimpleObjectFactory.Test/SimpleObjectFactory.Test.csproj
+artifacts:
+- path: '**/*.nupkg'
+  name: Nuget Packages
+deploy:
+- provider: NuGet
+  api_key:
+    secure: taDHfdWJQ+A6uEwVuIQgBawYeQIiTc6fY829S052yIomaVjVdIvFfxDKMMLorshB
+  on:
+    branch: master
