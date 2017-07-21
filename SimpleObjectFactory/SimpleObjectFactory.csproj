@@ -10,7 +10,7 @@
     <PackageTags>dependency;injection;simple;factory</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <PackageProjectUrl>https://github.com/adriangodong/simple-object-factory</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/adriangodong/simple-object-factory/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>

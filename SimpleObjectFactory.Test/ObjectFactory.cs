@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SimpleObjectFactory.Test
 {
@@ -15,6 +16,19 @@ namespace SimpleObjectFactory.Test
 
             var service = serviceFactory.GetInstance<Implementation>();
             Assert.IsNotNull(service);
+
+        }
+
+        [TestMethod]
+        public void UseCachedInstance()
+        {
+
+            var serviceFactory = new SimpleObjectFactory.ObjectFactory();
+            serviceFactory.RegisterType<Implementation>();
+
+            var service1 = serviceFactory.GetInstance<Implementation>();
+            var service2 = serviceFactory.GetInstance<Implementation>();
+            Assert.AreSame(service1, service2);
 
         }
 
@@ -79,6 +93,17 @@ namespace SimpleObjectFactory.Test
 
             Assert.IsNotNull(actual);
             Assert.AreSame(expected, actual);
+        }
+
+        [TestMethod]
+        public void DuplicateRegistation()
+        {
+            var serviceFactory = new SimpleObjectFactory.ObjectFactory();
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                serviceFactory.RegisterType<IInterface, Implementation>();
+                serviceFactory.RegisterType<IInterface, Implementation>();
+            });
         }
 
         private interface IInterface
