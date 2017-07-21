@@ -11,11 +11,6 @@ namespace SimpleObjectFactory
 
         public void RegisterType<TService, TImplementation>() where TImplementation : TService
         {
-            if (!typeof(TService).GetTypeInfo().IsAssignableFrom(typeof(TImplementation).GetTypeInfo()))
-            {
-                throw new ArgumentException($"{typeof(TService).Name} is not assignable from {typeof(TImplementation).Name}");
-            }
-
             if (registry.ContainsKey(typeof(TService)))
             {
                 throw new ArgumentException($"{typeof(TService).Name} has been added previously");
